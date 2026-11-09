@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:CentroMedico.Models"
+             x:Class="CentroMedico.Pages.PrincipalPage"
+             Title="CEMEI">
+
+    <!-- Opciones de la barra superior -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Institucional" Clicked="AlIrAInstitucional" />
+        <ToolbarItem Text="Obras sociales" Clicked="AlIrAObrasSociales" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView x:Name="Scroll">
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label x:Name="LblSaludo" Style="{StaticResource Titulo}" />
+            <Label x:Name="LblRol" Style="{StaticResource Secundario}" />
+
+            <Button x:Name="BtnTurnos"
+                    Style="{StaticResource BotonSecundario}"
+                    Clicked="AlIrATurnos" />
+
+            <!-- PASO 1: ESPECIALIDAD -->
+            <Label Text="1. Buscá y elegí una especialidad" Style="{StaticResource Subtitulo}" Margin="0,10,0,0" />
+
+            <SearchBar x:Name="BuscadorEspecialidad"
+                       Placeholder="Especialidad o nombre del médico"
+                       TextChanged="AlCambiarBusqueda" />
+
+            <VerticalStackLayout x:Name="ListaEspecialidades" Spacing="8">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Button Text="{Binding .}"
+                                Style="{StaticResource BotonOpcion}"
+                                Clicked="AlElegirEspecialidad" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <Label x:Name="LblSinResultados"
+                   Text="No encontramos resultados. Probá con otra palabra."
+                   Style="{StaticResource Parrafo}"
+                   IsVisible="False" />
+
+            <!-- PASO 2: PROFESIONALES (aparece al elegir una especialidad) -->
+            <VerticalStackLayout x:Name="SeccionProfesionales" IsVisible="False" Spacing="10" Margin="0,10,0,0">
+
+                <Label x:Name="LblTituloProfesionales" Style="{StaticResource Subtitulo}" />
+
+                <VerticalStackLayout x:Name="ListaProfesionales" Spacing="10">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="models:Profesional">
+                            <Border Style="{StaticResource Tarjeta}">
+                                <VerticalStackLayout Spacing="6">
+                                    <Label Text="{Binding Nombre}" Style="{StaticResource Subtitulo}" />
+                                    <Label Text="{Binding DiasTexto, StringFormat='Atiende: {0}'}" />
+                                    <Label Text="{Binding Cobertura}" Style="{StaticResource Secundario}" />
+                                    <Button Text="Ver horarios disponibles"
+                                            Style="{StaticResource BotonPrimario}"
+                                            Margin="0,6,0,0"
+                                            Clicked="AlElegirProfesional" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!-- PASO 3: HORARIOS (aparece al elegir un médico) -->
+            <VerticalStackLayout x:Name="SeccionHorarios" IsVisible="False" Spacing="10" Margin="0,10,0,0">
+
+                <Label x:Name="LblTituloHorarios" Style="{StaticResource Subtitulo}" />
+
+                <Label Text="Elegí el día:" />
+                <Picker x:Name="PickerDia"
+                        Title="Tocá para elegir el día"
+                        SelectedIndexChanged="AlCambiarDia" />
+
+                <Label x:Name="LblHorarios" Style="{StaticResource Parrafo}" />
+
+                <FlexLayout x:Name="ListaHorarios" Wrap="Wrap" JustifyContent="Start">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="models:HorarioDisponible">
+                            <Button Text="{Binding Texto}"
+                                    Style="{StaticResource BotonHorario}"
+                                    Clicked="AlElegirHorario" />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+
+            </VerticalStackLayout>
+
+            <Button Text="Cerrar sesión"
+                    Style="{StaticResource BotonSecundario}"
+                    Margin="0,24,0,0"
+                    Clicked="AlCerrarSesion" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

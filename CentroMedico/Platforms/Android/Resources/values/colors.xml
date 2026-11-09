@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<!-- PALETA DE LA APP: verde claro y blanco -->
+
+	<!-- Verde medio tenue: barra superior y botones principales (con texto blanco) -->
+	<Color x:Key="Primario">#2E7D5B</Color>
+
+	<!-- Verde muy claro: fondo de las pantallas y botones suaves -->
+	<Color x:Key="Fondo">#F1F8F4</Color>
+	<Color x:Key="CelesteSuave">#DCEFE3</Color>
+	<Color x:Key="BordeSuave">#C5E1D0</Color>
+
+	<!-- Blanco: tarjetas y campos de texto -->
+	<Color x:Key="Blanco">#FFFFFF</Color>
+
+	<!-- Textos: verde oscuro, para que se lea bien -->
+	<Color x:Key="TextoPrincipal">#1F4D38</Color>
+	<Color x:Key="TextoSecundario">#4A6B5A</Color>
+
+</ResourceDictionary>

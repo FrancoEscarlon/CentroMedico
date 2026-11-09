@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:CentroMedico.Models"
+             x:Class="CentroMedico.Pages.ObrasSocialesPage"
+             Title="Obras sociales">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label Text="Obras sociales" Style="{StaticResource Titulo}" />
+            <Label Style="{StaticResource Parrafo}"
+                   Text="Trabajamos con las siguientes obras sociales. El porcentaje indica cuánto cubre la consulta." />
+
+            <VerticalStackLayout x:Name="ListaObras" Spacing="8">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:ObraSocial">
+                        <Border Style="{StaticResource Tarjeta}" Padding="16,12">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="{Binding Nombre}" Style="{StaticResource Subtitulo}" VerticalOptions="Center" />
+                                <Label Grid.Column="1"
+                                       Text="{Binding CoberturaTexto}"
+                                       Style="{StaticResource Subtitulo}"
+                                       TextColor="{StaticResource Primario}"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <Label Text="Atención solo particular" Style="{StaticResource Subtitulo}" Margin="0,12,0,0" />
+            <Label Style="{StaticResource Parrafo}"
+                   Text="Estos especialistas no atienden por obra social. La consulta se abona de forma particular." />
+
+            <VerticalStackLayout x:Name="ListaParticulares" Spacing="8">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:Profesional">
+                        <Border Style="{StaticResource Tarjeta}" Padding="16,12">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{Binding Nombre}" Style="{StaticResource Subtitulo}" />
+                                <Label Text="{Binding Especialidad}" Style="{StaticResource Secundario}" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

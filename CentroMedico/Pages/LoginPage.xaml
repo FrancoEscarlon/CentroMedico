@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentroMedico.Pages.LoginPage"
+             Title="CEMEI">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16" VerticalOptions="Center">
+
+            <Label Text="Bienvenido/a" Style="{StaticResource Titulo}" HorizontalOptions="Center" />
+            <Label Text="Ingresá para sacar o consultar tus turnos"
+                   Style="{StaticResource Parrafo}"
+                   HorizontalTextAlignment="Center" />
+
+            <Border Style="{StaticResource Tarjeta}">
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="DNI" Style="{StaticResource Subtitulo}" />
+                    <Entry x:Name="EntryDni"
+                           Placeholder="Sin puntos ni espacios"
+                           Keyboard="Numeric"
+                           MaxLength="8"
+                           SemanticProperties.Hint="Escribí tu número de documento" />
+
+                    <Label Text="Contraseña" Style="{StaticResource Subtitulo}" />
+                    <Entry x:Name="EntryClave"
+                           Placeholder="Tu contraseña"
+                           IsPassword="True"
+                           Completed="AlIngresar"
+                           SemanticProperties.Hint="Escribí tu contraseña" />
+
+                    <Label x:Name="LblError"
+                           IsVisible="False"
+                           FontAttributes="Bold"
+                           Style="{StaticResource Parrafo}" />
+
+                    <Button Text="Ingresar"
+                            Style="{StaticResource BotonPrimario}"
+                            Margin="0,8,0,0"
+                            Clicked="AlIngresar" />
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

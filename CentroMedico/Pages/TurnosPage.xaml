@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:CentroMedico.Models"
+             x:Class="CentroMedico.Pages.TurnosPage"
+             Title="Mis turnos">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label x:Name="LblTitulo" Style="{StaticResource Titulo}" />
+
+            <Label x:Name="LblVacio"
+                   Text="Todavía no hay turnos reservados."
+                   Style="{StaticResource Parrafo}"
+                   IsVisible="False" />
+
+            <VerticalStackLayout x:Name="ListaTurnos" Spacing="10">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:Turno">
+                        <Border Style="{StaticResource Tarjeta}">
+                            <VerticalStackLayout Spacing="6">
+                                <Label Text="{Binding Descripcion}" Style="{StaticResource Subtitulo}" />
+                                <Label Text="{Binding FechaTexto}" />
+                                <Label Text="{Binding NombrePaciente, StringFormat='Paciente: {0}'}" Style="{StaticResource Secundario}" />
+                                <Label Text="{Binding DniPaciente, StringFormat='DNI: {0}'}" Style="{StaticResource Secundario}" />
+                                <Button Text="Cancelar turno"
+                                        Style="{StaticResource BotonSecundario}"
+                                        Margin="0,6,0,0"
+                                        Clicked="AlCancelar" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

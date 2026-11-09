@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentroMedico.Pages.InstitucionalPage"
+             Title="Institucional">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label Text="Nuestra historia" Style="{StaticResource Titulo}" />
+
+            <Border Style="{StaticResource Tarjeta}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Quiénes somos" Style="{StaticResource Subtitulo}" />
+                    <Label Style="{StaticResource Parrafo}"
+                           Text="El Centro Médico Integral (CEMEI) nació en Formosa el 23 de Diciembre del año 1992, con el objetivo de brindar atención médica con calidad humana y sin largas esperas. Hoy somos un equipo de profesionales de distintas especialidades, con un mismo objetivo: cuidar la salud de toda la familia." />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource Tarjeta}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Nuestra misión" Style="{StaticResource Subtitulo}" />
+                    <Label Style="{StaticResource Parrafo}"
+                           Text="Contribuir a mejorar la calidad de vida de los habitantes de Formosa, facilitando el acceso al cuidado de su salud, otorgando servicios integrales, oportunos, de alta calidad técnica y profesional, en un ambiente de calidez y seguridad.
+
+                             Contar con personal competente y comprometido, integrando una Red de Salud Privada con presencia en la región, que fomenta la innovación y mejora continua de los procesos operacionales y de servicio Incorporación Personal." />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Nuestra trayectoria" Style="{StaticResource Subtitulo}" Margin="0,8,0,0" />
+
+            <Border Style="{StaticResource Tarjeta}">
+                <VerticalStackLayout Spacing="14">
+
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="1992" Style="{StaticResource Subtitulo}" TextColor="{StaticResource Primario}" />
+                        <Label Text="Apertura del consultorio inicial" Style="{StaticResource Parrafo}" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="2006" Style="{StaticResource Subtitulo}" TextColor="{StaticResource Primario}" />
+                        <Label Text="Ampliación del edificio e incorporación de nuevas especialidades." Style="{StaticResource Parrafo}" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="2014" Style="{StaticResource Subtitulo}" TextColor="{StaticResource Primario}" />
+                        <Label Text="Nuevos servicios de dermatología y odontología, con equipamiento moderno." Style="{StaticResource Parrafo}" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="2026" Style="{StaticResource Subtitulo}" TextColor="{StaticResource Primario}" />
+                        <Label Text="Lanzamiento de la aplicación para pedir turnos desde el celular." Style="{StaticResource Parrafo}" />
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
